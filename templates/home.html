@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Scan to Text Document</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<style>
+			.about{
+				border : 3px solid black;
+				width : 200px;
+				height: 400px;
+			}
+
+			.uploadfile{
+				border : 3px solid black;
+				width : 400px;
+				height : 400px;
+			}
+			.display-text{
+				width : 400px;
+				height : 400px;
+				border : 3px solid black;
+				overflow-y: scroll;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script>
+			function readURL(input) {
+				        if (input.files && input.files[0]) {
+						            var reader = new FileReader();
+
+						            reader.onload = function (e) {
+								                    $('#blah')
+								                        .attr('src', e.target.result)
+								                        .width(150)
+								                        .height(200);
+								                };
+
+						            reader.readAsDataURL(input.files[0]);
+						        }
+				    }
+		</script>
+
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+			<h1> Document text Extraction</h1>
+			<div class="container jumbotron">
+				<div class="row">
+					<div class="col-sm-4 about">
+						<h2>About Me</h2>
+						<div class="fakeimg">
+							<p> This application will take an image or .pdf document and write the text detected in that document to a .txt file</p>
+						</div>
+					</div>
+					<div class="col-sm-4 uploadfile" onclick="selectFileClick()">
+						<form method="post" enctype="multipart/form-data" action='/upload'>
+							<h2>Upload Image or PDF doc</h2>
+								<div class="fakeimg">
+									Upload File
+									<input type="file" name='file' class="file_upload" onchange="readURL(this)">
+									<img id="blah" src="#" alt="" />
+								</div>
+								
+						
+						<input type="submit" value="Upload">
+						<a href="/return-files/" target="blank"><button class='btn btn-default'>Download!</button></a>
+						</form>
+					</div>
+					<div class="col-sm-4 display-text">
+						<h2>Display Text from doc</h2>
+						<p>{{ string_variable }}</p>
+					</div>
+				</div>
+		</div>
+	</body>
+</html>
