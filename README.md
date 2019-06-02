@@ -1,6 +1,7 @@
 # Document Text Detection
 
 For this program install the following dependencies<br />
+	- Google Cloud Vision packages <br />
 	- Python3<br />
 	- Flask<br />
 
