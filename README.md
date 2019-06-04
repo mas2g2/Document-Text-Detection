@@ -1,5 +1,5 @@
 # Document Text Detection
-For a Demo click on the following link : http://52.15.133.49/
+For a Demo click on the following link : http://52.15.133.49/<br />
 For this program install the following dependencies<br />
 	- Google Cloud Vision packages <br />
 	- Python3<br />
